@@ -25,3 +25,15 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+.background {
+  background-image: url("../assets/background1.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+@media only screen and (min-width: 10px) and (max-width: 959px) {
+  .background {
+    background-image: url("../assets/background.png") !important;
+  }
+}
