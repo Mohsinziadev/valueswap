@@ -9,21 +9,38 @@ import { useState } from "react";
 const page = () => {
   const [settingModal, setSeetingModal] = useState(false);
   const options = [
-    "Binance Coin",
-    "Ethirium ",
-    "Ripple ",
-    "Dogecoin  ",
-    "Uniswap ",
-    "Monero",
-    "Polkadot",
-    "Cosmos ",
+    { name: "Bitcoin", coin: "BTC" },
+    { name: "Ethereum", coin: "ETH" },
+    { name: "Ripple", coin: "XRP" },
+    { name: "Litecoin", coin: "LTC" },
+    { name: "Bitcoin Cash", coin: "BCH" },
+    { name: "Cardano", coin: "ADA" },
+    { name: "Polkadot", coin: "DOT" },
+    { name: "Binance Coin", coin: "BNB" },
+    { name: "Chainlink", coin: "LINK" },
+    { name: "Stellar", coin: "XLM" },
+    { name: "Bitcoin SV", coin: "BSV" },
+    { name: "Monero", coin: "XMR" },
+    { name: "EOS", coin: "EOS" },
+    { name: "TRON", coin: "TRX" },
+    { name: "Neo", coin: "NEO" },
+    { name: "Tezos", coin: "XTZ" },
+    { name: "VeChain", coin: "VET" },
+    { name: "Dogecoin", coin: "DOGE" },
+    { name: "USD Coin", coin: "USDC" },
+    { name: "Tether", coin: "USDT" },
+    { name: "Polymath", coin: "POLY" },
+    { name: "Zcash", coin: "ZEC" },
+    { name: "Dash", coin: "DASH" },
+    { name: "IOTA", coin: "MIOTA" },
+    { name: "Maker", coin: "MKR" },
   ];
   return (
-    <div>
+    <div className="background w-full h-screen">
       <div className="w-full px-10">
         <Navbar />
       </div>
-      <div className="flex justify-center items-center w-full background">
+      <div className="flex justify-center items-center w-full ">
         <div className="flex flex-col max-w-[1300px]  flex-col gap-2  w-full h-screen ">
           <div className="w-full flex justify-center items-center">
             <div className="py-10 w-[24rem] lg:px-4">
@@ -38,16 +55,18 @@ const page = () => {
                   <Autocomplete options={options} />
                 </div>
                 <div className="flex w-full mt-6 justify-between">
-                  <div className="flex text-sm gap-2 font-normal  ">
+                  <div className="flex text-white text-sm gap-2 font-normal  ">
                     1 BNB = 3.47 LTC <span className="text-[#F0C724]"> | </span>{" "}
                     1 LTC = 0.288435 BNB
                   </div>
                   <div className="flex gap-2 ">
                     <Image
                       src={swap}
+                      alt="swap"
                       className="h-5 w-6 contain cursor-pointer"
                     />
                     <Image
+                    alt="setting"
                       src={setting}
                       onClick={() => setSeetingModal(true)}
                       className="h-5 w-5 cursor-pointer contain"
@@ -65,7 +84,7 @@ const page = () => {
                       Minimum received{" "}
                       <Image src={info} alt="info" className="h-3 w-3 " />{" "}
                     </p>{" "}
-                    <h4 className="text-xs">3.5 LTC</h4>
+                    <h4 className="text-xs text-white">3.5 LTC</h4>
                   </div>
                   <div className="w-full flex justify-between">
                     <p className="text-xs flex gap-1 items-center text-gray-300 font-light">
@@ -79,7 +98,7 @@ const page = () => {
                       Liquidity Provider Fee{" "}
                       <Image src={info} alt="info" className="h-3 w-3 " />{" "}
                     </p>{" "}
-                    <h4 className="text-xs">0.11 BNB</h4>
+                    <h4 className="text-xs text-white">0.11 BNB</h4>
                   </div>
                 </div>
               </div>
@@ -87,7 +106,7 @@ const page = () => {
           </div>
           <Modal
             isOpen={settingModal}
-            className="w-[300px] bg-black border border-white"
+            className="w-[20rem] bg-black border border-white"
             toggle={() => setSeetingModal(false)}
           >
             <div className="px-4 py-6 w-full">
@@ -108,7 +127,7 @@ const page = () => {
                 <h1 className="font-bold text-[#F0C724] text-2xl">Auto</h1>
               </div>
               <div className="flex justify-between mt-4 items-center  ">
-                <Image src={hazard} className="h-8 w-8 " />
+                <Image src={hazard} alt="hazard" className="h-8 w-8 " />
                 <h3 className="text-[#FF7A00]">
                   Your transaction may be frontrun
                 </h3>
@@ -137,7 +156,7 @@ const page = () => {
                         value=""
                         className="sr-only peer"
                       />
-                      <div className="w-8 h-4 bg-gray-200 peer-focus:outline-none   rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+                      <div className="w-7 h-4 bg-gray-200 peer-focus:outline-none   rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
                     </label>
                   </div>
                 </div>
@@ -153,7 +172,7 @@ const page = () => {
                         value=""
                         className="sr-only peer"
                       />
-                      <div className="w-8 h-4 bg-gray-200 peer-focus:outline-none   rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+                      <div className="w-7 h-4 bg-gray-200 peer-focus:outline-none   rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
                     </label>
                   </div>
                 </div>

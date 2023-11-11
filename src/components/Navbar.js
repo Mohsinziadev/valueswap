@@ -1,5 +1,6 @@
+"use client";
 import Image from "next/image";
-import {wallet,lightdark,eye} from "@/assets/index";
+import { wallet, lightdark, eye } from "@/assets/index";
 
 const Navbar = () => {
   return (
@@ -19,5 +20,5 @@ const Navbar = () => {
       </div>
     </div>
   );
-}
-export default Navbar
+};
+export default Navbar;
